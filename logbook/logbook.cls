@@ -1,0 +1,75 @@
+\def\filename{logbook.cls}
+\def\fileversion{v. 0.0.1}
+\def\filedate{15 February 2013}
+\def\contributors{S. V. Paulauskas}
+
+\typeout{\filename}
+\typeout{\fileversion}
+\typeout{Created by S. V. Paulauskas}
+\typeout{\filedate}
+\typeout{This file uses some of the macros from the Thesis & Dissertation Template for The 
+University of Tennessee at Knoxville, written by Tony Saad}
+
+\ProvidesClass{logbook}
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{color}}%
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}%
+\ExecuteOptions{12pt}% execute default options
+\ProcessOptions%
+\LoadClass{report}
+
+\def\@title{My Title}
+\def\@author{My Name}
+
+%---------- LOAD PACKAGES ----------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{appendix}
+\usepackage{enumerate}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[plainpages=false,pdfpagelabels=true,pagebackref]{hyperref}
+\usepackage{subfigure}
+\usepackage{url}
+
+\hypersetup{%
+  bookmarksnumbered = true, 
+  pdftitle={\@title}, 
+  pdfauthor={\@author},
+  pdfpagelayout=SinglePage,
+  bookmarksopen=False,
+  pdfborder=0 0 0,        % make all links invisible, so the pdf looks good when printed	
+  pdffitwindow=true,      % window fit to page when opened
+  pdfcreator={\@author},  % creator of the document
+  pdfnewwindow=true,      % links in new window
+  colorlinks=true,        % false: boxed links; true: colored links
+  linkcolor=blue,         % color of internal links
+  citecolor=magenta,      % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=cyan           % color of external links
+}
+
+%---------- SET HYPHENATION ---------
+\hyphenpenalty=5000	% reduce hyphenation as much as possible
+\tolerance=1000     % goes with the previous command
+
+%---------- Widow/orphan protection ----------
+\clubpenalty=10000    % Minimize orphans orphans(eliminate 10000)
+\widowpenalty=10000   % Minimize widows
+\brokenpenalty=10000  % Do not allow hyphen across pages
+% Use cool footnotes
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\raggedbottom
+
+%---------- MACRO FOR ADDING TO THE TOC ----------
+\newcommand {\addToTOC}[1] {
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{#1}
+}
+%---------- MACRO FOR ADDING TO PDF BOOKMARKS ---------
+\newcommand {\addToPDFBookmarks}[3] {
+	\cleardoublepage
+	\phantomsection
+	\pdfbookmark[#1]{#2}{#3}
+}
+
