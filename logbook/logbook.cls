@@ -64,7 +64,7 @@ University of Tennessee at Knoxville, written by Tony Saad}
 \newcommand {\addToTOC}[1] {
 	\cleardoublepage
 	\phantomsection
-	\addcontentsline{toc}{chapter}{#1}
+	\addcontentsline{toc}{part}{#1}
 }
 %---------- MACRO FOR ADDING TO PDF BOOKMARKS ---------
 \newcommand {\addToPDFBookmarks}[3] {
@@ -72,4 +72,3 @@ University of Tennessee at Knoxville, written by Tony Saad}
 	\phantomsection
 	\pdfbookmark[#1]{#2}{#3}
 }
-
