@@ -1,11 +1,12 @@
-\newcommand{\betan}{ $\beta_{n}$ }
-\newcommand{\qbeta}{Q$_\beta$}
-\newcommand{\qbetan}{Q$_{\beta-n}$}
+\newcommand{\betan}{\ensuremath{\beta_{n}} }
+\newcommand{\qbeta}{Q\ensuremath{_\beta}}
+\newcommand{\qbetan}{Q\ensuremath{_{\beta-n}}}
+\newcommand{\pn}{P\ensuremath{_n}}
 
-\newcommand{\diff}[3][]{
-  \ensuremath{\frac{\mathrm{d}^{#1} {#2}}{\mathrm{d} {#3}^{#1}}}}
+\newcommand{\diff}[3]{
+  \ensuremath{ \frac{\mathrm{d}^{#3} #1}{\mathrm{d}{#2}^{#3}} } }
 
-\newcommand{\pdiff}[3][]{
-  \ensuremath{\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}}}
+\newcommand{\pdiff}[3]{
+  \ensuremath{\frac{\partial^{#3} {#1}}{\partial {#2}^{#3}}}}
 
-\newcommand{\iso}[2]{$^{#2}$#1}
+\newcommand{\iso}[2]{\ensuremath{^{#2}}#1}
