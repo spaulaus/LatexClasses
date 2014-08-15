@@ -24,7 +24,7 @@
 %            UT.UT.UT.UT.UT.UT.UT.U            UT.UT.UT.UT.                      	%
 %-----------------------------------------------------------------------------------%
 %-----------------------------------------------------------------------------------%
-%	      T H E S I S	  &   	D I S S E R T A T I O N    T E M P L A T E			%
+%	      T H E S I S	  &   	D I S S E R T A T I O N    T E M P L A T E  %
 %-----------------------------------------------------------------------------------%
 %-----------------------------------------------------------------------------------%
 % This template is distributed with ABSOLUTELY NO WARRANTY.
@@ -109,7 +109,7 @@
 \RequirePackage{amsmath,amsthm,amssymb}     % AMS math, AMS theorem, AMS fonts
 \RequirePackage{setspace}                   % line spacing
 \RequirePackage[vcentering,dvips]{geometry}	% help with margins
-\RequirePackage[pdftex,plainpages=false,pdfpagelabels=true,breaklinks=true,pagebackref]{hyperref} % for pdf bookmarks
+\RequirePackage[plainpages=false,pdfpagelabels=true,breaklinks=true,pagebackref]{hyperref} % for pdf bookmarks
 \RequirePackage{color}
 %----------------------------------------------------------------------------------------------------%
 % define theorem, corollary, and lemma environments
@@ -134,9 +134,9 @@
 	pdfsubject={\@dept},
 	pdfkeywords={\@keywords},
 	pdfpagelayout=SinglePage,
-    bookmarksopen=False,
+        bookmarksopen=False,
 	%pdfview=FitV,
-	pdfborder=0 0 0, 		% make all links invisible, so the pdf looks good when printed	
+	pdfborder=0 0 0, % make all links invisible, so the pdf looks good when printed	
     pdffitwindow=true,      % window fit to page when opened
     %pdfstartview={FitV},   % fits the width of the page to the window
     pdfcreator={\@author},  % creator of the document
@@ -145,7 +145,8 @@
     linkcolor=blue,         % color of internal links
     citecolor=magenta,      % color of links to bibliography
     filecolor=magenta,      % color of file links
-    urlcolor=cyan           % color of external links
+    urlcolor=cyan,           % color of external links
+    unicode = true
 }
 %----------------------------------------------------------------------------------------------------%
 \geometry{
@@ -171,7 +172,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\makeTitlePage} {
 	\thispagestyle{empty}
-    \begin{spacing}{1.5}
+    \begin{spacing}{1.0}
 	\vspace*{0.3in}
 	\begin{center}
 		\huge
@@ -181,18 +182,16 @@
         \vfill
 		\Large \rm
         \ifnum\@documentID=\thesisID {
-            A Thesis Presented for
-
-            The \@degree
+            A Thesis Presented for The 
+            
+            \@degree
         } \else {
-            A Dissertation
-
-            Presented for the
+            A Dissertation Presented for the
 
             \@degree
         } \fi
-		
-		Degree
+
+	        Degree
 		
 		\@university
 		
@@ -314,6 +313,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\makeAppendixPage}{
     \newpage
+    \addToTOC{Appendix}
     \vspace*{2.0in}
     \begin{center}\Huge \bf{Appendix} \end{center}
     \newpage

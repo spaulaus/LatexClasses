@@ -21,21 +21,32 @@ University of Tennessee at Knoxville, written by Tony Saad}
 \def\@author{My Name}
 
 %---------- LOAD PACKAGES ----------
-\usepackage{amsmath}
+\usepackage[plainpages=true,breaklinks=true,pdfpagelabels=true,pagebackref]{hyperref}
+\usepackage{amsmath,amsthm,amssymb}
 \usepackage{amsfonts}
 \usepackage{appendix}
+\usepackage{caption}
+\usepackage{comment}
+\usepackage{color}
 \usepackage{enumerate}
-\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in,vcentering]{geometry}
+\usepackage{float}
 \usepackage{graphicx}
-\usepackage[plainpages=false,pdfpagelabels=true,pagebackref]{hyperref}
-\usepackage{subfigure}
+\usepackage{fancyhdr}
+\usepackage{relsize} 
+\usepackage{booktabs}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{soul}
+\usepackage{subcaption}
 \usepackage{url}
+\usepackage{wrapfig}
 
 \hypersetup{%
   bookmarksnumbered = true, 
   pdftitle={\@title}, 
   pdfauthor={\@author},
-  pdfpagelayout=SinglePage,
+  pdfpagelayout=OneColumn,
   bookmarksopen=False,
   pdfborder=0 0 0,        % make all links invisible, so the pdf looks good when printed	
   pdffitwindow=true,      % window fit to page when opened
@@ -45,7 +56,8 @@ University of Tennessee at Knoxville, written by Tony Saad}
   linkcolor=blue,         % color of internal links
   citecolor=magenta,      % color of links to bibliography
   filecolor=magenta,      % color of file links
-  urlcolor=cyan           % color of external links
+  urlcolor=cyan,          % color of external links
+  unicode = true
 }
 
 %---------- SET HYPHENATION ---------
@@ -60,15 +72,43 @@ University of Tennessee at Knoxville, written by Tony Saad}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \raggedbottom
 
+%---------- MACRO FOR SETTING UP THE TITLE PAGE ----------
+\newcommand {\settitle}[2] {
+  \title{
+    \centering
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} 
+    \rule{\textwidth}{0.4pt}\\[0.5\baselineskip] 
+    \Huge \bfseries {#1} \\[0.5\baselineskip] \huge {#2}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}
+  }
+}
+
+%---------- MACRO TO SET THE AUTHOR ---------
+\newcommand {\setauthor}[2] {
+  \author{\Huge {#1} \\[0.5\baselineskip] \Large {#2} \\[1.5\baselineskip]}
+}
+
+%---------- MACRO TO SET THE STARTING DATE ---------
+\newcommand {\setstartdate}[1] {
+  \date{Started: {#1} \\[0.5\baselineskip] Last Updated: \today}
+}
+
 %---------- MACRO FOR ADDING TO THE TOC ----------
 \newcommand {\addToTOC}[1] {
-	\cleardoublepage
-	\phantomsection
-	\addcontentsline{toc}{part}{#1}
+  \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{part}{#1}
 }
 %---------- MACRO FOR ADDING TO PDF BOOKMARKS ---------
 \newcommand {\addToPDFBookmarks}[3] {
-	\cleardoublepage
-	\phantomsection
-	\pdfbookmark[#1]{#2}{#3}
+  \cleardoublepage
+  \phantomsection
+  \pdfbookmark[#1]{#2}{#3}
+}
+
+%---------- MACRO TO INSERT THE DATE AS A NEW SECTION ---------
+\newcommand {\workday}[1] {
+  \section{{#1}}
+  @\label{sec:#1}
 }
