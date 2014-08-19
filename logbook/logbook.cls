@@ -1,5 +1,5 @@
 \def\filename{logbook.cls}
-\def\fileversion{v. 0.0.1}
+\def\fileversion{v. 0.9.0}
 \def\filedate{15 February 2013}
 \def\contributors{S. V. Paulauskas}
 
@@ -7,8 +7,8 @@
 \typeout{\fileversion}
 \typeout{Created by S. V. Paulauskas}
 \typeout{\filedate}
-\typeout{This file uses some of the macros from the Thesis & Dissertation Template for The 
-University of Tennessee at Knoxville, written by Tony Saad}
+\typeout{This class uses some of the macros from the Thesis & Dissertation 
+  Template for The University of Tennessee at Knoxville, written by Tony Saad}
 
 \ProvidesClass{logbook}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{color}}%
@@ -21,7 +21,6 @@ University of Tennessee at Knoxville, written by Tony Saad}
 \def\@author{My Name}
 
 %---------- LOAD PACKAGES ----------
-\usepackage[plainpages=true,breaklinks=true,pdfpagelabels=true,pagebackref]{hyperref}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{amsfonts}
 \usepackage{appendix}
@@ -37,26 +36,28 @@ University of Tennessee at Knoxville, written by Tony Saad}
 \usepackage{booktabs}
 \usepackage{mathrsfs}
 \usepackage{multirow}
-\usepackage{soul}
 \usepackage{subcaption}
+\usepackage{soul}
 \usepackage{url}
 \usepackage{wrapfig}
+\usepackage[plainpages=false,breaklinks=true,pdfpagelabels=true,pagebackref]{hyperref}
 
-\hypersetup{%
+
+\hypersetup{
   bookmarksnumbered = true, 
   pdftitle={\@title}, 
   pdfauthor={\@author},
   pdfpagelayout=OneColumn,
   bookmarksopen=False,
-  pdfborder=0 0 0,        % make all links invisible, so the pdf looks good when printed	
+  pdfborder=0 0 0,        % make all links invisible, so the pdf looks good when printed
   pdffitwindow=true,      % window fit to page when opened
   pdfcreator={\@author},  % creator of the document
   pdfnewwindow=true,      % links in new window
   colorlinks=true,        % false: boxed links; true: colored links
   linkcolor=blue,         % color of internal links
-  citecolor=magenta,      % color of links to bibliography
+  citecolor=blue,        % color of links to bibliography
   filecolor=magenta,      % color of file links
-  urlcolor=cyan,          % color of external links
+  urlcolor=magenta,       % color of external links
   unicode = true
 }
 
@@ -110,5 +111,5 @@ University of Tennessee at Knoxville, written by Tony Saad}
 %---------- MACRO TO INSERT THE DATE AS A NEW SECTION ---------
 \newcommand {\workday}[1] {
   \section{{#1}}
-  @\label{sec:#1}
+  \label{sec:#1}
 }
