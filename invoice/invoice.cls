@@ -39,8 +39,7 @@
 
 % Command for setting a default hourly rate
 \newcommand{\feetype}[1]{
-    \textbf{#1}
-    \\
+    \textbf{#1} \\
 }
 
 % Counters for totaling up hours and dollars
@@ -71,37 +70,39 @@
     }
 
     \newcommand{\subtotalNoStar}{
-        {\bf Subtotal} & {\bf \total{subhours} hours} &  & {\bf \$\total{subcost}}
-        \setcounter{subcost}{0}
-        \setcounter{subhours}{0}
-        \\*[1.5ex]
+      {\bf Subtotal} & {\bf \total{subhours} hours} & & {\bf\$\total{subcost}}
+      \setcounter{subcost}{0}
+      \setcounter{subhours}{0}
+      \\*[1.5ex]
     }
     \newcommand{\subtotalStar}{
-        {\bf Subtotal} & & & {\bf \$\total{subcost}}
-        \setcounter{subcost}{0}
-        \\*[1.5ex]
+      \textbf{Subtotal} & & & \textbf{\$\total{subcost}}
+      \setcounter{subcost}{0}
+      \\*[1.5ex]
     }
     \newcommand{\subtotal}{
-         \hline
-         \@ifstar
-         \subtotalStar%
-         \subtotalNoStar%
+      \hline
+      \@ifstar
+      \subtotalStar%
+      \subtotalNoStar%
     }
-
+    
     % Create a new row from date and hours worked (use stored fee type and hourly rate)
     \newcommand*{\hourrow}[3]{%
-        \addtocounter{hours}{1000 * \real{##2}}%
-        \addtocounter{subhours}{1000 * \real{##2}}%
-        \unitrow{##1}{##2}{##3}{hours}%
+      \addtocounter{hours}{1000 * \real{##2}}%
+      \addtocounter{subhours}{1000 * \real{##2}}%
+      \unitrow{##1}{##2}{##3}{hours}%
     }
     \renewcommand{\tabcolsep}{0.8ex}
     \setlength\LTleft{0pt}
     \setlength\LTright{0pt}
-    \begin{longtable}{@{\extracolsep{\fill}\hspace{\tabcolsep}} l r r r }
-    \hline
-    {\bf Description of Services} & \multicolumn{1}{c}{\bf Quantity} & \multicolumn{1}{c}{\bf Unit Price} & \multicolumn{1}{c}{\bf Amount} \\*
-    \hline\hline
-    \endhead
+
+    %Begin the definition and setup of the longtable
+    \begin{longtable}{@{\extracolsep{\fill}\hspace{\tabcolsep}} l r r r}
+      \hline\hline
+          {\bf Description of Services} & \multicolumn{1}{c}{\bf Quantity} & \multicolumn{1}{c}{\bf Unit Price} & \multicolumn{1}{r}{\bf Amount} \\*
+          \hline\hline
+          \endhead
 }{
     \hline\hline\hline
     {\bf Balance Due} & & & {\bf \$\total{cost}} \\
