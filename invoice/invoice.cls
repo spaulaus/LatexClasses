@@ -26,25 +26,26 @@
 
 \LoadClass[12pt]{article}
 
-\usepackage[letterpaper,hmargin=0.79in,vmargin=0.79in]{geometry}
+\usepackage[letterpaper,hmargin=1.0in,vmargin=1.0in]{geometry}
 \usepackage[parfill]{parskip} % Do not indent paragraphs
 \usepackage{fp} % Fixed-point arithmetic
 \usepackage{calc} % Counters for totaling hours and cost
 \usepackage{longtable}
 
-\pagestyle{empty} % No page numbers
+\pagestyle{plain} % No page numbers
 \linespread{1.5} % Line spacing
 
 \setlength{\doublerulesep}{\arrayrulewidth} % Double rules look like one thick one
 
 % Command for setting a default hourly rate
 \newcommand{\feetype}[1]{
-    \textbf{#1} \\
+  \textbf{#1} \\
 }
 
 % Counters for totaling up hours and dollars
 \newcounter{hours} \newcounter{subhours} \newcounter{cost} \newcounter{subcost}
-\setcounter{hours}{0} \setcounter{subhours}{0} \setcounter{cost}{0} \setcounter{subcost}{0}
+\setcounter{hours}{0} \setcounter{subhours}{0} \setcounter{cost}{0} 
+\setcounter{subcost}{0}
 
 % Formats inputed number with 2 digits after the decimal place
 \newcommand*{\formatNumber}[1]{\FPround{\cost}{#1}{2}\cost} %
@@ -70,7 +71,7 @@
     }
 
     \newcommand{\subtotalNoStar}{
-      {\bf Subtotal} & {\bf \total{subhours} hours} & & {\bf\$\total{subcost}}
+      \textbf{Subtotal} & \textbf{\total{subhours} hours} & & \textbf{\$\total{subcost}}%
       \setcounter{subcost}{0}
       \setcounter{subhours}{0}
       \\*[1.5ex]
@@ -83,8 +84,8 @@
     \newcommand{\subtotal}{
       \hline
       \@ifstar
-      \subtotalStar%
-      \subtotalNoStar%
+      \subtotalStar
+      \subtotalNoStar
     }
     
     % Create a new row from date and hours worked (use stored fee type and hourly rate)
@@ -98,13 +99,13 @@
     \setlength\LTright{0pt}
 
     %Begin the definition and setup of the longtable
-    \begin{longtable}{@{\extracolsep{\fill}\hspace{\tabcolsep}} l r r r}
+    \begin{longtable}{@{\extracolsep{\fill}} l r r r}
       \hline\hline
-          {\bf Description of Services} & \multicolumn{1}{c}{\bf Quantity} & \multicolumn{1}{c}{\bf Unit Price} & \multicolumn{1}{r}{\bf Amount} \\*
+          {\bf Description of Services} & {\bf Quantity} & {\bf Unit Price} & {\bf Amount} \\*
           \hline\hline
           \endhead
 }{
     \hline\hline\hline
-    {\bf Balance Due} & & & {\bf \$\total{cost}} \\
+    {\bf Balance Due} & & & {\bf \$\total{cost}}\\*
     \end{longtable}
 }
