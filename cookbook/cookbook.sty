@@ -456,7 +456,6 @@
 
     % initialisation
     \setkeys{recipe}{preparationtime, bakingtime, bakingtemperature, portion, calory, source}
-    \setkeys{picture}{small, big, smallpicturewidth=\xcb@smallpicturewidth, bigpicturewidth=\xcb@bigpicturewidth} % load the default values
     \ingredients{}
     \preparation{}
     \def\xcb@hint{}
@@ -468,12 +467,10 @@
     \setcounter{xcb@newpagehead}{\value{page}}
 }
 {% this part is executed at \end{recipe}
-  %% SECOND BLOCK
   \recipesection[\normalsize\xcb@recipename]%
   {\hspace{-1em}\textcolor{\xcb@color@recipename}{\xcb@font@recipename\xcb@recipename}}
     \xcb@cmd@recipeoverview
 
-%% THIRD BLOCK
     \xcb@ingredients
 
     \xcb@preparation
