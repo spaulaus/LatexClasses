@@ -28,14 +28,7 @@
         %\def\@fancywarning#1{}
     }
 }
-\DeclareOption{myconfig}
-{% load personal configuration
-    \AtEndOfPackage{
-        \InputIfFileExists{xcookybooky.cfg}
-        {\PackageInfo{xcookybooky}{inputting 'xcookybooky.cfg'}}
-        {\PackageWarning{xcookybooky}{cannot find the configuration file 'xcookybooky.cfg'}}
-    }
-}
+
 \ProcessOptions\relax
 
 \RequirePackage{tikz}                        % for creating the lines for the hint
