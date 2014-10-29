@@ -210,7 +210,7 @@
 \define@key{headlines}{bakingtime}[\fontsize{14.5pt}{10pt}\Oven]{\def\xcb@name@bakingtime{#1}}
 \define@key{headlines}{bakingtemperature}[\Thermo{4}]{\def\xcb@name@bakingtemperature{#1}}
 \define@key{headlines}{portion}[\fontsize{14.5pt}{10pt}\Dish]{\def\xcb@name@portion{#1}}
-\define@key{headlines}{portionvalue}[People]{\def\xcb@name@portionvalue{#1}}
+\define@key{headlines}{portionvalue}[Servings]{\def\xcb@name@portionvalue{#1}}
 \define@key{headlines}{calory}[Calories]{\def\xcb@name@calory{#1}}
 \define@key{headlines}{source}[\PaperPortrait]{\def\xcb@name@source{#1}}
 \savekeys{headlines}
@@ -248,8 +248,8 @@
     source
 }
 
-\define@key{recipelengths}{preparationwidth}[0.60\textwidth]{\def\xcb@preparationwidth{#1}}
-\define@key{recipelengths}{ingredientswidth}[0.35\textwidth]{\def\xcb@ingredientswidth{#1}}
+\define@key{recipelengths}{preparationwidth}[\textwidth]{\def\xcb@preparationwidth{#1}}
+\define@key{recipelengths}{ingredientswidth}[\textwidth]{\def\xcb@ingredientswidth{#1}}
 \define@key{recipelengths}{pictureheight}[6cm]{\def\xcb@pictureheight{#1}}
 \define@key{recipelengths}{bigpicturewidth}[0.60\textwidth]{\def\xcb@bigpicturewidth{#1}}
 \define@key{recipelengths}{smallpicturewidth}[0.35\textwidth]{\def\xcb@smallpicturewidth{#1}}
@@ -469,33 +469,7 @@
 }
 {% this part is executed at \end{recipe}
 %% FIRST BLOCK
-    \if@twoside
-        \ifodd\arabic{page}
-            \begin{minipage}[T]{\xcb@picture@bigwidth}
-                \xcb@picture@big
-            \end{minipage}
-            \hfill
-            \begin{minipage}[T]{\xcb@picture@smallwidth}
-                \xcb@picture@small
-            \end{minipage}
-        \else
-            \begin{minipage}[T]{\xcb@picture@smallwidth}
-                \xcb@picture@small
-            \end{minipage}
-            \hfill
-            \begin{minipage}[T]{\xcb@picture@bigwidth}
-                \xcb@picture@big
-            \end{minipage}
-        \fi
-    \else
-        \begin{minipage}[T]{\xcb@picture@bigwidth}
-            \xcb@picture@big
-        \end{minipage}
-        \hfill
-        \begin{minipage}[T]{\xcb@picture@smallwidth}
-            \xcb@picture@small
-        \end{minipage}
-    \fi
+
 
 %% SECOND BLOCK
     \recipesection[\normalsize\xcb@recipename]%
