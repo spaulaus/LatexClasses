@@ -468,16 +468,14 @@
     \setcounter{xcb@newpagehead}{\value{page}}
 }
 {% this part is executed at \end{recipe}
-%% FIRST BLOCK
-
-
-%% SECOND BLOCK
-    \recipesection[\normalsize\xcb@recipename]%
-    {\hspace{-1em}\textcolor{\xcb@color@recipename}{\xcb@font@recipename\xcb@recipename}}
+  %% SECOND BLOCK
+  \recipesection[\normalsize\xcb@recipename]%
+  {\hspace{-1em}\textcolor{\xcb@color@recipename}{\xcb@font@recipename\xcb@recipename}}
     \xcb@cmd@recipeoverview
 
 %% THIRD BLOCK
     \xcb@ingredients
+
     \xcb@preparation
 
     \vfill
