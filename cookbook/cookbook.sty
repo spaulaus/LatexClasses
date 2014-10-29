@@ -250,16 +250,11 @@
 
 \define@key{recipelengths}{preparationwidth}[\textwidth]{\def\xcb@preparationwidth{#1}}
 \define@key{recipelengths}{ingredientswidth}[\textwidth]{\def\xcb@ingredientswidth{#1}}
-\define@key{recipelengths}{pictureheight}[6cm]{\def\xcb@pictureheight{#1}}
-\define@key{recipelengths}{bigpicturewidth}[0.60\textwidth]{\def\xcb@bigpicturewidth{#1}}
-\define@key{recipelengths}{smallpicturewidth}[0.35\textwidth]{\def\xcb@smallpicturewidth{#1}}
+
 \savekeys{recipelengths}
 {
     preparationwidth,
-    ingredientswidth,
-    pictureheight,
-    bigpicturewidth,
-    smallpicturewidth
+    ingredientswidth
 }
 
 \newcommand*{\setRecipeLengths}[1]
@@ -269,35 +264,7 @@
 \setRecipeLengths
 {% initialisation
     preparationwidth,
-    ingredientswidth,
-    pictureheight,
-    bigpicturewidth,
-    smallpicturewidth
-}
-
-\define@key{picture}{small}[]{
-    \def\xcb@picture@small{
-        \ifthenelse{\equal{#1}{}}
-        {% not set => not shown
-        }
-        {
-            \vspace{-0.6cm}
-            \includegraphics[width=\linewidth, height = \xcb@pictureheight, keepaspectratio]{#1}
-        }
-    }
-}
-\define@key{picture}{smallpicturewidth}[]{\def\xcb@picture@smallwidth{#1}}
-\define@key{picture}{bigpicturewidth}[]{\def\xcb@picture@bigwidth{#1}}
-\define@key{picture}{big}[]{
-    \def\xcb@picture@big{
-        \ifthenelse{\equal{#1}{}}
-        {% not set => not shown
-        }
-        {
-            \vspace{-0.6cm}
-            \includegraphics[width=\linewidth, height = \xcb@pictureheight, keepaspectratio]{#1}
-        }
-    }
+    ingredientswidth
 }
 
 \define@key{recipe}{preparationtime}[]{\def\xcb@preparationtime{#1}}
@@ -355,12 +322,6 @@
 }
 \newenvironment{recipe}[2][]
 {
-    %% macros
-    \newcommand*{\graph}[1]
-    {%
-        \setkeys{picture}{##1}
-    }
-
     \newcommand*{\ingredients}[1]
     {%
         \def\xcb@ingredients
