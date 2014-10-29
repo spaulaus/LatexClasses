@@ -56,7 +56,6 @@
 \ifHandwrittenFont@required
     \RequirePackage{emerald}                 % Handwritten Fonts
 \fi
-\RequirePackage{wrapfig}                     % To wrap the tabular with the ingredients
 
 \RequirePackage{ifthen}
 \RequirePackage{xkeyval}
@@ -83,6 +82,23 @@
 \setlength{\hoffset}{0cm}
 \setcounter{secnumdepth}{2} % subsubsections not numbered
 \setcounter{tocdepth}{3}    % subsubsections in the .toc file
+
+%---------- MACRO FOR SETTING UP THE TITLE PAGE ----------
+\newcommand {\settitle}[1] {
+  \title{
+    \centering
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} 
+    \rule{\textwidth}{0.4pt}\\[0.5\baselineskip] 
+    \Huge \bfseries {#1}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}
+  }
+}
+
+%---------- MACRO TO SET THE AUTHOR ---------
+\newcommand {\setauthor}[1] {
+  \author{\Huge {#1}}
+}
 
 \newcommand*{\recipesection}[2][]
 {%
@@ -199,13 +215,13 @@
     ]{\stepcounter{step}\thestep}{}%
 }
 
-\define@key{headlines}{inghead}[Zutaten]{
+\define@key{headlines}{inghead}[Ingredients]{
     \def\xcb@name@inghead{\textcolor{\xcb@color@inghead}{\textbf{\xcb@fontsize@inghead{#1}}\ }}
 }
-\define@key{headlines}{prephead}[Zubereitung]{
+\define@key{headlines}{prephead}[Preparation]{
     \def\xcb@name@prephead{\textcolor{\xcb@color@prephead}{\textbf{\xcb@fontsize@prephead{#1}}\ }}
 }
-\define@key{headlines}{hinthead}[Tipp:]{
+\define@key{headlines}{hinthead}[Tips:]{
     \def\xcb@name@hinthead{\textcolor{\xcb@color@hinthead}{\xcb@fontsize@hinthead{#1}}}
 }
 \define@key{headlines}{continuationhead}[Fortsetzung]{\def\xcb@name@continuationhead{#1}}
@@ -214,8 +230,8 @@
 \define@key{headlines}{bakingtime}[\fontsize{14.5pt}{10pt}\Oven]{\def\xcb@name@bakingtime{#1}}
 \define@key{headlines}{bakingtemperature}[\Thermo{4}]{\def\xcb@name@bakingtemperature{#1}}
 \define@key{headlines}{portion}[\fontsize{14.5pt}{10pt}\Dish]{\def\xcb@name@portion{#1}}
-\define@key{headlines}{portionvalue}[Personen]{\def\xcb@name@portionvalue{#1}}
-\define@key{headlines}{calory}[Brennwert]{\def\xcb@name@calory{#1}}
+\define@key{headlines}{portionvalue}[People]{\def\xcb@name@portionvalue{#1}}
+\define@key{headlines}{calory}[Calories]{\def\xcb@name@calory{#1}}
 \define@key{headlines}{source}[\PaperPortrait]{\def\xcb@name@source{#1}}
 \savekeys{headlines}
 {
@@ -456,17 +472,6 @@
         \end{tabular}
     }
 
-    \newcommand\xcb@cmd@wrapfill
-    {%
-        \par
-        \ifx\parshape\WF@fudgeparshape
-        \nobreak
-        \vskip-\baselineskip
-        \vskip\c@WF@wrappedlines\baselineskip
-        \allowbreak
-        \WFclear
-        \fi
-    }
     %% end of macros
 
     % initialisation
@@ -518,16 +523,11 @@
     \xcb@cmd@recipeoverview
 
 %% THIRD BLOCK
-    \begin{wraptable}{r}{\xcb@ingredientswidth}
-    {
-        \xcb@ingredients
-    }
-    \end{wraptable}
+    \xcb@ingredients
     \xcb@preparation
 
     \vfill
 
-    \xcb@cmd@wrapfill
     \xcb@hint
     \setcounter{xcb@newpagefoot}{0}
 }
