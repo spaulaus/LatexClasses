@@ -36,16 +36,15 @@
 \RequirePackage{xcolor}
 \RequirePackage[clock, misc, weather]{ifsym} % Symbolpackage e.g. \Interval, \Wecker etc
 \RequirePackage{cookingsymbols}              % Cookings symbols e.g. \Oven, \Dish etc
-
 \RequirePackage{ifthen}
 \RequirePackage{xkeyval}
 \RequirePackage{lettrine}                    % numbering the preparation steps
 \RequirePackage{fancyhdr}
 \RequirePackage{units}
-
 \RequirePackage{tabularx}                    % line breaks in tabular
-
+\RequirePackage{handystuff}
 \RequirePackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{nicefrac}
 
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{2ex plus 0.5ex}
@@ -55,6 +54,7 @@
 \setlength{\oddsidemargin}{0.5cm}
 \setcounter{secnumdepth}{2} % subsubsections not numbered
 \setcounter{tocdepth}{3}    % subsubsections in the .toc file
+
 
 %---------- MACRO FOR SETTING UP THE TITLE PAGE ----------
 \newcommand {\settitle}[1] {
