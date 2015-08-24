@@ -30,8 +30,9 @@
 \usepackage{enumerate}
 \usepackage[top=1in,bottom=1in,left=1in,right=1in,vcentering]{geometry}
 \usepackage{float}
-\usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{listings}
 \usepackage{relsize} 
 \usepackage{booktabs}
 \usepackage{mathrsfs}
@@ -41,7 +42,6 @@
 \usepackage{url}
 \usepackage{wrapfig}
 \usepackage[plainpages=false,breaklinks=true,pdfpagelabels=true,pagebackref]{hyperref}
-
 
 \hypersetup{
   bookmarksnumbered = true, 
@@ -55,10 +55,41 @@
   pdfnewwindow=true,      % links in new window
   colorlinks=true,        % false: boxed links; true: colored links
   linkcolor=blue,         % color of internal links
-  citecolor=blue,        % color of links to bibliography
+  citecolor=blue,         % color of links to bibliography
   filecolor=magenta,      % color of file links
   urlcolor=magenta,       % color of external links
   unicode = true
+}
+
+\lstset{
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  %morecomment=[1]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{magenta},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  float=htbp,
+  frame=trbl,                      % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  morekeywords={sqrt}, % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=-4pt,                  % how far the line-numbers are from the code
+  numberstyle=\color{gray},        % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  morestring=[b]'',
+  morestring=[d]',
+  morestring=[d]`,
+  morestring=[b]``,
+  stringstyle=\color{red},         % string literal style
+  tabsize=4,                       % sets default tabsize to 4 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
 %---------- SET HYPHENATION ---------
@@ -112,4 +143,10 @@
 \newcommand {\workday}[1] {
   \section{{#1}}
   \label{sec:#1}
+}
+
+%---------- MACRO TO INSERT A NOTE ---------
+\newcommand {\note}[1] {
+  \vspace{\baselineskip}
+  \noindent\textbf{#1}
 }

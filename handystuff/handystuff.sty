@@ -1,3 +1,5 @@
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
 \newcommand{\betan}{\ensuremath{\beta_{n}} }
 \newcommand{\qbeta}{Q\ensuremath{_\beta} }
 \newcommand{\qbetan}{Q\ensuremath{_{\beta-n}} }
@@ -10,12 +12,15 @@
   \ensuremath{\frac{\partial^{#3} {#1}}{\partial {#2}^{#3}}}}
 
 %Thanks, M.G.B!!
-\newcommand{\iso}[2]{\ensuremath{^{#2}}#1}
-\newcommand{\aze}[3]{\ensuremath{^{#1}_{#2}}#3}
-\newcommand{\azen}[4]{\ensuremath{^{#1}_{#2}}#3\ensuremath{_{#4}}}
+\newcommand{\iso}[2]{\ensuremath{^{#2}}#1 }
+\newcommand{\aze}[3]{\ensuremath{^{#1}_{#2}}#3 }
+\newcommand{\azen}[4]{\ensuremath{^{#1}_{#2}}#3\ensuremath{_{#4}} }
 
-\newcommand{\jp}[2]{#1\ensuremath{^{\mathrm{#2}}}}
-\newcommand{\lj}[2]{#1\ensuremath{_{\mathrm{#2}}}}
+\newcommand{\jp}[2]{#1\ensuremath{^{\mathrm{#2}}} }
+\newcommand{\lj}[2]{#1\ensuremath{_{\mathrm{#2}}} }
+
+%scintillator types
+\newcommand{\baf}{BaF\ensuremath{_2} }
 
 %Colors
 \definecolor{prim1}{RGB}{176,126,61}
@@ -39,5 +44,7 @@
 \definecolor{comp4}{RGB}{101,150,185}
 \definecolor{comp5}{RGB}{124,160,185}
 
-\DeclareRobustCommand{\celcius}{\ensuremath{^{\circ}\mathrm{C}}}
-\DeclareRobustCommand{\faren}{\ensuremath{^{\circ}\mathrm{F}}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+\DeclareRobustCommand{\celcius}{\ensuremath{^{\circ}}C}
+\DeclareRobustCommand{\faren}{\ensuremath{^{\circ}}F}
